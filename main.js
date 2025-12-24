@@ -5,15 +5,15 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1280,
     height: 720,
-    icon: path.join(__dirname, "icon.ico"), // Opcional: se tiver um ícone
+    icon: path.join(__dirname, 'src', 'assets', 'icon.ico'),
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false, // Permite que seu script rode sem problemas
+      contextIsolation: false, 
     },
     autoHideMenuBar: true, // Esconde a barra de menu padrão (File, Edit...)
   });
 
-  win.loadFile("index.html");
+  win.loadFile("src/index.html");
 }
 
 app.whenReady().then(() => {
