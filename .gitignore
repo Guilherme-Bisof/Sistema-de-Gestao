@@ -1,0 +1,17 @@
+# Dependências do Node (Não subir!)
+node_modules/
+
+# Pastas de Build/Executáveis (Não subir!)
+dist/
+out/
+build/
+release/
+R1 Motos-win32-x64/
+*.exe
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log

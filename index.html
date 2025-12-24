@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R1 MOTOS - Sistema de Gestão</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="layout-wrapper">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-r1">R1</div>
+                <div class="logo-text">MOTOS</div>
+            </div>
+            
+            <nav class="menu">
+                <p class="menu-label">Principal</p>
+                <button class="menu-item active" onclick="mostrarTela('dashboard')" data-tela="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Visão Geral
+                </button>
+
+                <p class="menu-label">Operacional</p>
+                <button class="menu-item" onclick="mostrarTela('receber')" data-tela="receber">
+                    <i class="fas fa-hand-holding-usd"></i> Contas a Receber
+                </button>
+                <button class="menu-item" onclick="mostrarTela('pagar')" data-tela="pagar">
+                    <i class="fas fa-file-invoice-dollar"></i> Contas a Pagar
+                </button>
+                <button class="menu-item" onclick="mostrarTela('clientes')" data-tela="clientes">
+                    <i class="fas fa-users"></i> Clientes
+                </button>
+                <button class="menu-item" onclick="mostrarTela('veiculos')" data-tela="veiculos">
+                    <i class="fas fa-motorcycle"></i> Estoque Veículos
+                </button>
+
+                <p class="menu-label">Gestão</p>
+                <button class="menu-item" onclick="mostrarTela('financeiro')" data-tela="financeiro">
+                    <i class="fas fa-chart-pie"></i> Fluxo de Caixa
+                </button>
+                
+                <div class="menu-footer">
+                    <button class="btn-outline" onclick="fazerBackup()">
+                        <i class="fas fa-download"></i> Backup
+                    </button>
+                    <button class="btn-outline" onclick="mostrarImportarBackup()">
+                        <i class="fas fa-upload"></i> Restaurar
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h2 id="titulo-pagina">Visão Geral</h2>
+                <div class="user-info">
+                    <div class="data-hora" id="data-atual">
+                        <i class="far fa-clock"></i> Carregando...
+                    </div>
+                    <div class="avatar">R1</div>
+                </div>
+            </header>
+
+            <div id="conteudo-principal" class="content-area"></div>
+        </main>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-titulo">Título</h3>
+                <button class="modal-close" onclick="fecharModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="modal-confirmacao" class="modal">
+        <div class="modal-content small-modal">
+            <div class="modal-header">
+                <h3 id="confirmacao-titulo">Confirmação</h3>
+                <button class="modal-close" onclick="fecharConfirmacao()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmacao-mensagem"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="fecharConfirmacao()">Cancelar</button>
+                <button class="btn btn-primary" id="btn-confirmar">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-alerta" class="modal" style="z-index: 2000;">
+        <div class="modal-content small-modal" style="border-top: 5px solid #FFCC00;">
+            <div class="modal-header" style="background:#222;">
+                <h3 style="color:#FFCC00;"><i class="fas fa-bell"></i> Atenção</h3>
+                <button class="modal-close" onclick="document.getElementById('modal-alerta').style.display='none'">&times;</button>
+            </div>
+            <div class="modal-body" id="corpo-alerta">
+                </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="mostrarTela('pagar'); document.getElementById('modal-alerta').style.display='none'">Ver Contas</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
