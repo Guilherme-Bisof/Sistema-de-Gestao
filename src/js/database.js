@@ -1,4 +1,3 @@
-// Sistema de Banco de Dados Local (100% Offline)
 const DB = {
   // ==================== FUNÇÕES BASE ====================
 
@@ -101,7 +100,7 @@ const DB = {
       vencimento: vencimento,
       observacoes: observacoes ? observacoes.trim() : "",
       pago: false,
-      formaPagamento: null, // Novo campo
+      formaPagamento: null,
       dataCadastro: new Date().toISOString(),
       dataPagamento: null,
     };
@@ -127,19 +126,19 @@ const DB = {
     return false;
   },
 
-  // ATUALIZADO: Aceita forma de pagamento
+  // Forma de pagamento
   marcarComoPago(id, formaPagamento) {
     const contas = this.carregar("contasReceber");
     const conta = contas.find((c) => c.id === id);
     if (conta) {
       conta.pago = true;
       conta.dataPagamento = new Date().toISOString();
-      conta.formaPagamento = formaPagamento; // Salva a forma
+      conta.formaPagamento = formaPagamento; // Salva a forma de Pagamento
       this.salvar("contasReceber", contas);
 
       const clienteNome = this.getCliente(conta.clienteId)?.nome || "Cliente";
 
-      // Registrar movimentação com o detalhe
+  
       this.adicionarMovimentacao(
         "entrada",
         conta.valor,
@@ -242,7 +241,7 @@ const DB = {
     return false;
   },
 
-  // ATUALIZADO: Aceita forma de pagamento
+  // Forma de pagamento
   marcarPagoContaPagar(id, formaPagamento) {
     const contas = this.carregar("contasPagar");
     const conta = contas.find((c) => c.id === id);

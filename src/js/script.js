@@ -56,7 +56,7 @@ function atualizarDataHora() {
     agora.toLocaleDateString("pt-BR", opcoes);
 }
 
-// ==================== MÁSCARAS DE INPUT ====================
+// ==================== MASKS DE INPUT ====================
 
 function mascaraMoeda(input) {
   let value = input.value.replace(/\D/g, "");
@@ -85,7 +85,7 @@ function limparValorMoeda(valorStr) {
 
 function limparValorKM(kmStr) {
   if (!kmStr) return 0;
-  // Remove tudo que não for número
+  // Retira tudo que não for número
   return parseInt(kmStr.toString().replace(/\D/g, ""));
 }
 
@@ -137,7 +137,7 @@ function mostrarDashboard() {
   const totalVencido = contasVencidas.reduce((t, c) => t + c.valor, 0);
   const veiculos = DB.getVeiculosDisponiveis();
 
-  // ALERTA DE CONTAS A PAGAR
+  // ALERTA CASO HOUVER CONTA A PAGAR
   const pendencias = DB.getContasPagarPendentes();
   if (pendencias.length > 0) {
     const corpoAlerta = document.getElementById("corpo-alerta");
@@ -357,7 +357,7 @@ function filtrarClientesTabela() {
   });
 }
 
-// ==================== VEÍCULOS (MÚLTIPLAS IMAGENS + MÁSCARAS) ====================
+// ==================== VEÍCULOS (MÚLTIPLAS IMAGENS + MASKS) ====================
 function mostrarVeiculos() {
   const veiculos = DB.getVeiculos();
   const disponiveis = veiculos.filter((v) => !v.vendido);
@@ -916,7 +916,7 @@ function salvarCliente(e, edit, id) {
   mostrarClientes();
 }
 
-// --- CONTAS A PAGAR (Com Máscara) ---
+// --- CONTAS A PAGAR (Com Mask) ---
 function abrirFormContaPagar(edit = false, id = null) {
   let c = edit ? DB.getContasPagar().find((x) => x.id === id) : null;
   abrirModal(`
@@ -952,7 +952,7 @@ function salvarContaPagar(e, edit, id) {
   mostrarContasPagar();
 }
 
-// --- CONTAS A RECEBER (Com Máscara) ---
+// --- CONTAS A RECEBER (Com Mask) ---
 function abrirFormContaReceber(editando = false, id = null) {
   const clientes = DB.getClientes();
   if (clientes.length === 0) {
