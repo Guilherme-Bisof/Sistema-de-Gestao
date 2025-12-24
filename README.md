@@ -1,4 +1,4 @@
-# 🏍️ R1 Motos — Sistema de Gestão Desktop
+# Sistema de Gestão para Loja de Veículos
 
 [![Status: Concluído](https://img.shields.io/badge/STATUS-CONCLUÍDO-green?style=for-the-badge)](https://github.com/Guilherme-Bisof/Sistema-de-Gestao)
 [![Electron](https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white)](https://www.electronjs.org/)
