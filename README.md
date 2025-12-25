@@ -128,3 +128,5 @@ Contribuições são bem-vindas. Abra uma issue ou envie um pull request com mel
 ## 👨‍💻 Autor
 
 Desenvolvido por Guilherme. Obrigado por ver o projeto — qualquer dúvida, abra uma issue no repositório.
+
+[Linkedin](https://www.linkedin.com/in/guilhermebisof/)
