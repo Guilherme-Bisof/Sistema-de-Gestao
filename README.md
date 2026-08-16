@@ -1,137 +1,103 @@
-# Sistema de Gestão Comercial — R1 Motos
+# Sistema de Gestão Comercial — Operação & Estoque
 
 [![Status: Concluído](https://img.shields.io/badge/STATUS-CONCLUÍDO-green?style=for-the-badge)](https://github.com/Guilherme-Bisof/Sistema-de-Gestao)
 [![Electron](https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white)](https://www.electronjs.org/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/)
 
-> Solução robusta de software Desktop nativo (Windows) projetada para centralizar a operação, controle financeiro e gerenciamento de estoque de uma concessionária de veículos. Desenvolvida sob o conceito **Offline-First**, garante máxima performance, zero custo de infraestrutura de nuvem e total privacidade dos dados comerciais.
+> Aplicação Desktop nativa para Windows desenvolvida com Electron e Node.js para centralização operacional, conciliação financeira e controle de estoque veicular. Projetada sob o conceito **Offline-First**, garantindo persistência local, zero dependência de conexão externa e execução autônoma.
 
 ---
 
 ## 📋 Sumário
 
-- [Demonstração](#-demonstração)
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Funcionalidades Principais](#-funcionalidades-principais)
-- [Tecnologias e Arquitetura](#-tecnologias-e-arquitetura)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [O Que Este Projeto Demonstra Tecnicamente](#-o-que-este-projeto-demonstra-tecnicamente)
-- [Como Executar a Aplicação](#-como-executar-a-aplicação)
-- [Build e Empacotamento (.exe)](#-build-e-empacotamento-exe)
-- [Segurança e Persistência](#-segurança-e-persistência)
-
----
-
-## 📸 Demonstração
-
-<div align="center">
-  <img src="./src/assets/preview.png" alt="Dashboard R1 Motos" width="700">
-</div>
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Funcionalidades Principais](#funcionalidades-principais)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Organização do Projeto](#organização-do-projeto)
+- [O Que Este Projeto Demonstra](#o-que-este-projeto-demonstra)
+- [Como Executar a Aplicação](#como-executar-a-aplicação)
+- [Build e Empacotamento (.exe)](#build-e-empacotamento-exe)
+- [Melhorias Futuras](#melhorias-futuras)
 
 ---
 
 ##  Sobre o Projeto
 
-A aplicação foi idealizada e desenvolvida para substituir processos manuais obsoletos e planilhas descentralizadas da loja **R1 Motos**. O desafio de negócio consistia em entregar uma interface moderna, ágil e que operasse 100% de forma local, eliminando custos com mensalidades de servidores e dependência de conexão com a internet para vender. 
-
-O software encapsula a flexibilidade das tecnologias web modernas dentro do ecossistema **Electron**, fornecendo uma experiência desktop fluida, segura e de alto desempenho no sistema operacional Windows.
+O projeto foi desenvolvido para atender a demanda de centralização de processos comerciais, substituindo controles manuais em planilhas descentralizadas. A solução integra a flexibilidade das tecnologias web dentro do runtime nativo do **Electron**, assegurando autonomia operacional para os terminais da loja sem riscos de paralisação por instabilidades de rede.
 
 ---
 
 ##  Funcionalidades Principais
 
-* **Gestão Financeira Centralizada:** Módulo completo para fluxo de caixa (contas a pagar/receber), exibição de saldo dinâmico em tempo real e sistema automatizado de alertas para compromissos financeiros programados.
-* **Controle Inteligente de Estoque:** Cadastro estruturado de veículos com upload e compressão de múltiplas imagens armazenadas de forma otimizada via strings Base64.
-* **CRM / Gestão de Clientes:** Painel para armazenamento de contatos, dados cadastrais e histórico de interações comerciais.
-* **Arquitetura Offline-First:** Mecanismo de persistência local que garante integridade absoluta dos dados mesmo sem conexão de rede.
-* **Políticas de Backup:** Sistema nativo de exportação e importação da base de dados em formato JSON, mitigando o risco de perda de informações por falhas de hardware.
+* **Gestão Financeira & Fluxo de Caixa:** Lançamento de contas a pagar e a receber com cálculo dinâmico de saldo e rotinas de alerta de vencimento.
+* **Controle de Estoque de Veículos:** Cadastro de veículos com ficha técnica detalhada e gerenciamento de múltiplas fotos com compressão e armazenamento otimizado em Base64.
+* **Módulo de Clientes:** Centralização de registros cadastrais e rastreabilidade de negociações.
+* **Persistência Offline-First:** Mecanismo de gravação em disco local seguro e independente de infraestrutura de nuvem.
+* **Rotinas de Backup e Recuperação:** Exportação e importação da base de dados em formato JSON para proteção contra falhas operacionais ou corrupção de hardware.
 
 ---
 
-##  Tecnologias e Arquitetura
+##  Tecnologias Utilizadas
 
-* **Runtime & Shell Desktop:** Node.js & Electron
-* **Interface do Usuário (UI):** HTML5 Semântico & CSS3 Avançado (Grid System, Flexbox layouts e CSS Variables para manutenibilidade)
-* **Lógica de Programação:** JavaScript Essencial (ES6+ assíncrono, manipulação de DOM e eventos)
-* **Ferramentas de Distribuição:** Electron Packager (compilação e empacotamento nativo)
+* **Runtime Desktop:** Electron, Node.js
+* **Camada de Apresentação (UI):** HTML5 Semântico, CSS3 Avançado (Flexbox, CSS Grid, Variáveis CSS)
+* **Lógica da Aplicação:** JavaScript ES6+ (Manipulação assíncrona, eventos de DOM e IPC do Electron)
+* **Empacotamento & Distribuição:** Electron Packager
 
 ---
 
-##  Estrutura do Projeto
-```
+##  Organização do Projeto
+```bash
 Sistema de Gestao/
 ├── src/
-│   ├── assets/      # Ativos estáticos (ícones e imagens de interface)
-│   ├── css/         # Estilização global e variáveis arquiteturais (styles.css)
-│   ├── js/          # Motores lógicos da aplicação (database.js, script.js)
-│   └── index.html   # Camada de apresentação principal (View)
-├── main.js          # Processo principal (Main Process) do Electron e ciclo de vida da app
-└── package.json     # Gerenciamento de dependências, metadados e scripts de automação
+│   ├── assets/      # Recursos visuais estáticos e ícones
+│   ├── css/         # Folhas de estilo modulares e temas
+│   ├── js/          # Controladores lógicos e persistência local (database.js, script.js)
+│   └── index.html   # Camada de apresentação e interface com usuário
+├── main.js          # Processo principal (Main Process) e ciclo de vida do Electron
+└── package.json     # Metadados e scripts de execução/build
 ```
 
 ---
 
-##  Como Executar a Aplicação (Desenvolvimento)
+## O Que Este Projeto Demonstra
 
-**Pré-requisitos:** Certifique-se de ter o [Git](https://git-scm.com/) e o [Node.js (LTS)](https://nodejs.org/) instalados em sua máquina.
+* **Desenvolvimento de Aplicações Desktop:** Uso de Electron para transformar tecnologias web em executáveis nativos com comunicação segura entre processos.
+* **Engenharia de Software Offline-First:** Estruturação de fluxos transacionais locais com preservação de dados e tratamento de integridade.
+* **Otimização de Performance:** Tratamento e compressão de imagens em memória local, reduzindo a pegada de armazenamento no terminal.
+* **Arquitetura Orientada a Negócio:** Mapeamento de requisitos operacionais em fluxos funcionais claros para os operadores.
 
-1. Instale o projeto localmente efetuando o clone do repositório:
+---
+
+##  Como Executar a Aplicação
+
+### Pré-requisitos
+* Node.js LTS instalado
+* Git instalado
 
 ```bash
+# 1. Clonar o repositório
 git clone [https://github.com/Guilherme-Bisof/Sistema-de-Gestao.git](https://github.com/Guilherme-Bisof/Sistema-de-Gestao.git)
 cd Sistema-de-Gestao
-```
 
-2. Instale todas as dependências de desenvolvimento necessárias:
-
-```
+# 2. Instalar as dependências
 npm install
-```
 
-3. Inicialize a aplicação em modo de desenvolvimento (hot-reload do Electron):
-
-```
+# 3. Iniciar em ambiente de desenvolvimento
 npm start
 ```
 
 ---
 
-##  Build e Empacotamento (.exe)
-
-Para gerar o instalador de produção otimizado para ambientes Windows (x64), execute o script de empacotamento:
-
-```
-# Execução direta via npx para compilação isolada
+## Build e Empacotamento (.exe)
+```bash
 npx electron-packager . "Sistema de Gestao" --platform=win32 --arch=x64 --icon=src/assets/icon.ico --overwrite
 ```
 
-> Ajuste os parâmetros conforme necessário (nome, platform, arch, icon).
-
 ---
 
-## 🔒 Segurança e Privacidade de Dados
-
-Este software opera sob a premissa de total soberania de dados do usuário. As informações financeiras e cadastrais permanecem restritas ao disco local do terminal onde o sistema está instalado. O repositório armazena estritamente a arquitetura lógica do sistema; as bases de dados iniciam completamente vazias e seguras para novas instalações comerciais.
-
----
-
-## 🤝 Contribuição e Evoluções Futuras
-
-Melhorias de arquitetura, refatorações e novas features são muito bem-vindas. Sinta-se à vontade para abrir uma Issue ou enviar um Pull Request.
-
-Planos de evolução para o ecossistema do projeto:
-
-[ ] Implementação de testes automatizados de interface.
-
-[ ] Migração do motor de persistência local para SQLite.
-
-[ ] Geração de relatórios gerenciais automatizados em PDF.
-
----
-
-## 👨‍💻 Autor
-
-Desenvolvido com foco em engenharia prática por Guilherme Bisof.
-
-Conecte-se comigo no [Linkedin](https://www.linkedin.com/in/guilhermebisof/) para acompanhar outros projetos do meu portfólio.
+## Melhorias Futuras
+- [ ] Migração do motor de persistência para SQLite relacional local.
+- [ ] Emissão de relatórios gerenciais e comprovantes em formato PDF.
+- [ ] Implementação de testes automatizados de fluxo com Playwright ou Spectron.
